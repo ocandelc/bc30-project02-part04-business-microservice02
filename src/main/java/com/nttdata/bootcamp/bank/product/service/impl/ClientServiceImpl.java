@@ -1,7 +1,7 @@
 package com.nttdata.bootcamp.bank.product.service.impl;
 
 import com.nttdata.bootcamp.bank.product.model.dao.inte.ProductDaoInte;
-import com.nttdata.bootcamp.bank.product.model.document.Product;
+import com.nttdata.bootcamp.bank.product.model.document.Client;
 import com.nttdata.bootcamp.bank.product.service.inte.ProductlServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductlServiceInte {
     private ProductDaoInte productDaoInte;
 
     @Override
-    public Mono<Product> create(final Product product) {
+    public Mono<Client> create(final Client product) {
 
         return productDaoInte.save(product)
                 .doFirst(() -> log.info("Begin create Product"))
@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductlServiceInte {
     }
 
     @Override
-    public Flux<Product> readAll() {
+    public Flux<Client> readAll() {
 
         return productDaoInte.findAll()
                 .doFirst(() -> log.info("Begin readAll Product"))
@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductlServiceInte {
     }
 
     @Override
-    public Mono<Product> findByCodeProduct(String codeProduct) {
+    public Mono<Client> findByCodeProduct(String codeProduct) {
         return productDaoInte.findByCodeProduct(codeProduct)
                 .doFirst(() -> log.info("Begin findByCodeProduct Product"))
                 .doOnNext(a -> log.info(a.toString()))
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductlServiceInte {
     }
 
     @Override
-    public Mono<Product> updateById(final String id, final Product product) {
+    public Mono<Client> updateById(final String id, final Client product) {
 
         return productDaoInte.save(product)
                 .doFirst(() -> log.info("Begin updateById Product"))
