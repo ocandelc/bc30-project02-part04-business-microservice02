@@ -4,6 +4,6 @@ import com.nttdata.bootcamp.bank.product.model.document.Client;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Mono;
 
-public interface ProductDaoInte extends ReactiveMongoRepository<Client, String> {
-    Mono<Client> findByCodeProduct(String codeProduct);
+public interface ClientDaoInte extends ReactiveMongoRepository<Client, String> {
+    Mono<Client> findByID(String codeProduct);
 }

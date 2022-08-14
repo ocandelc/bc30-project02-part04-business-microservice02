@@ -8,7 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @Document(collection="product")
-public class Product {
+public class Client
+{
 
     @Id
     private String id;

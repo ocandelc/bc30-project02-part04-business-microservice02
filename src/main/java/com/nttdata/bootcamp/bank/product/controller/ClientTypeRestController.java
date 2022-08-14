@@ -1,7 +1,9 @@
 package com.nttdata.bootcamp.bank.product.controller;
 
 import com.nttdata.bootcamp.bank.product.model.document.Client;
+import com.nttdata.bootcamp.bank.product.model.document.ClientType;
 import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.product.service.inte.ClientTypeServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,37 +12,37 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/products")
-public class ClientRestController
+@RequestMapping("/api/clienttype")
+public class ClientTypeRestController
 {
 
-    private static final Logger log = LoggerFactory.getLogger(ClientRestController.class);
+    private static final Logger log = LoggerFactory.getLogger(ClientTypeRestController.class);
 
     @Autowired
-    private ClientServiceInte productServiceInte;
+    private ClientTypeServiceInte productServiceInte;
 
     @PostMapping("create")
-    public Mono<Client> create(@RequestBody final Client client) {
+    public Mono<ClientType> create(@RequestBody final ClientType clientType) {
         log.debug("Begin RestController create Product");
-        return productServiceInte.create(client);
+        return productServiceInte.create(clientType);
     }
 
     @GetMapping
-    public Flux<Client> readAll() {
+    public Flux<ClientType> readAll() {
         log.debug("Begin RestController readAll Product");
         return productServiceInte.readAll();
     }
 
     @GetMapping("/findByClientId/{id}")
-    public Mono<Client> findByClientId(@PathVariable String codeProduct) {
+    public Mono<ClientType> findByClientId(@PathVariable String id) {
         log.debug("Begin RestController findByCodeProduct Product");
-        return productServiceInte.findById(codeProduct);
+        return productServiceInte.findById(id);
     }
 
     @PutMapping("updateById/{id}")
-    public Mono<Client> updateById(@RequestBody final Client client, @PathVariable("id") final String id) {
+    public Mono<ClientType> updateById(@RequestBody final ClientType clientType, @PathVariable("id") final String id) {
         log.debug("Begin RestController updateById Product");
-        return productServiceInte.updateById(id, client);
+        return productServiceInte.updateById(id, clientType);
     }
 
     @DeleteMapping("deleteById/{id}")

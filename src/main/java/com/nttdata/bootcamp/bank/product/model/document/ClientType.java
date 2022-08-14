@@ -5,19 +5,15 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @Document(collection="product")
-public class Client
+public class ClientType
 {
-
     @Id
     private String id;
-    private String codeProduct;
     private String name;
     private String description;
-    private String bankAccountNumber;
-    private String interbankAccountNumber;
-    private String state;
-
 }

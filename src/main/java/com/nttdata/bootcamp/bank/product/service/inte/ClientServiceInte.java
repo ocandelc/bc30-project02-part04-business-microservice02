@@ -4,13 +4,14 @@ import com.nttdata.bootcamp.bank.product.model.document.Client;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface ProductlServiceInte {
+public interface ClientServiceInte
+{
 
-    Mono<Client> create(final Client product);
+    Mono<Client> create(final Client client);
 
     Flux<Client> readAll();
 
-    Mono<Client> findByCodeProduct(String codeProduct);
+    Mono<Client> findById(String id);
 
     Mono<Client> updateById(final String id, final Client product);
 

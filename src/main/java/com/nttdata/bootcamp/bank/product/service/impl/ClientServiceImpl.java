@@ -1,8 +1,8 @@
 package com.nttdata.bootcamp.bank.product.service.impl;
 
-import com.nttdata.bootcamp.bank.product.model.dao.inte.ProductDaoInte;
+import com.nttdata.bootcamp.bank.product.model.dao.inte.ClientDaoInte;
 import com.nttdata.bootcamp.bank.product.model.document.Client;
-import com.nttdata.bootcamp.bank.product.service.inte.ProductlServiceInte;
+import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,43 +11,44 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class ProductServiceImpl implements ProductlServiceInte {
+public class ClientServiceImpl implements ClientServiceInte
+{
 
-    private static final Logger log = LoggerFactory.getLogger(ProductlServiceInte.class);
+    private static final Logger log = LoggerFactory.getLogger(ClientServiceInte.class);
 
     @Autowired
-    private ProductDaoInte productDaoInte;
+    private ClientDaoInte clientDaoInte;
 
     @Override
-    public Mono<Client> create(final Client product) {
+    public Mono<Client> create(final Client client) {
 
-        return productDaoInte.save(product)
-                .doFirst(() -> log.info("Begin create Product"))
+        return clientDaoInte.save(client)
+                .doFirst(() -> log.info("Begin create client"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish create Product"));
+                .doAfterTerminate(() -> log.info("Finish create client"));
     }
 
     @Override
     public Flux<Client> readAll() {
 
-        return productDaoInte.findAll()
-                .doFirst(() -> log.info("Begin readAll Product"))
+        return clientDaoInte.findAll()
+                .doFirst(() -> log.info("Begin readAll client"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish readAll Product"));
+                .doAfterTerminate(() -> log.info("Finish readAll client"));
     }
 
     @Override
-    public Mono<Client> findByCodeProduct(String codeProduct) {
-        return productDaoInte.findByCodeProduct(codeProduct)
-                .doFirst(() -> log.info("Begin findByCodeProduct Product"))
+    public Mono<Client> findById(String id) {
+        return clientDaoInte.findById(id)
+                .doFirst(() -> log.info("Begin findById client"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish findByCodeProduct Product"));
+                .doAfterTerminate(() -> log.info("Finish findById client"));
     }
 
     @Override
-    public Mono<Client> updateById(final String id, final Client product) {
+    public Mono<Client> updateById(final String id, final Client client) {
 
-        return productDaoInte.save(product)
+        return clientDaoInte.save(client)
                 .doFirst(() -> log.info("Begin updateById Product"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish updateById Product"));
@@ -56,7 +57,7 @@ public class ProductServiceImpl implements ProductlServiceInte {
     @Override
     public Mono<Void> deleteById(final String id) {
 
-        return productDaoInte.deleteById(id)
+        return clientDaoInte.deleteById(id)
                 .doFirst(() -> log.info("Begin deleteById Product"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish deleteById Product"));

@@ -1,8 +1,10 @@
 package com.nttdata.bootcamp.bank.product.service.impl;
 
-import com.nttdata.bootcamp.bank.product.model.dao.inte.ClientDaoInte;
+import com.nttdata.bootcamp.bank.product.model.dao.inte.ClientTypeDaoInte;
 import com.nttdata.bootcamp.bank.product.model.document.Client;
+import com.nttdata.bootcamp.bank.product.model.document.ClientType;
 import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.product.service.inte.ClientTypeServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,44 +13,43 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class ClientServiceImpl implements ClientServiceInte
+public class ClientTypeServiceImpl implements ClientTypeServiceInte
 {
-
     private static final Logger log = LoggerFactory.getLogger(ClientServiceInte.class);
 
     @Autowired
-    private ClientDaoInte clientDaoInte;
+    private ClientTypeDaoInte clientTypeDaoInte;
 
     @Override
-    public Mono<Client> create(final Client client) {
+    public Mono<ClientType> create(final ClientType clientType) {
 
-        return clientDaoInte.save(client)
+        return clientTypeDaoInte.save(clientType)
                 .doFirst(() -> log.info("Begin create client"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish create client"));
     }
 
     @Override
-    public Flux<Client> readAll() {
+    public Flux<ClientType> readAll() {
 
-        return clientDaoInte.findAll()
+        return clientTypeDaoInte.findAll()
                 .doFirst(() -> log.info("Begin readAll client"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish readAll client"));
     }
 
     @Override
-    public Mono<Client> findById(String id) {
-        return clientDaoInte.findById(id)
+    public Mono<ClientType> findById(String id) {
+        return clientTypeDaoInte.findById(id)
                 .doFirst(() -> log.info("Begin findById client"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish findById client"));
     }
 
     @Override
-    public Mono<Client> updateById(final String id, final Client client) {
+    public Mono<ClientType> updateById(final String id, final ClientType clientType) {
 
-        return clientDaoInte.save(client)
+        return clientTypeDaoInte.save(clientType)
                 .doFirst(() -> log.info("Begin updateById Product"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish updateById Product"));
@@ -57,7 +58,7 @@ public class ClientServiceImpl implements ClientServiceInte
     @Override
     public Mono<Void> deleteById(final String id) {
 
-        return clientDaoInte.deleteById(id)
+        return clientTypeDaoInte.deleteById(id)
                 .doFirst(() -> log.info("Begin deleteById Product"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish deleteById Product"));

@@ -1,7 +1,7 @@
 package com.nttdata.bootcamp.bank.product.controller;
 
-import com.nttdata.bootcamp.bank.product.model.document.Product;
-import com.nttdata.bootcamp.bank.product.service.inte.ProductlServiceInte;
+import com.nttdata.bootcamp.bank.product.model.document.Client;
+import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,39 +10,40 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/products")
-public class ProductRestController {
+@RequestMapping("/api/client")
+public class ClientRestController
+{
 
-    private static final Logger log = LoggerFactory.getLogger(ProductlServiceInte.class);
+    private static final Logger log = LoggerFactory.getLogger(ClientRestController.class);
 
     @Autowired
-    private ProductlServiceInte productServiceInte;
+    private ClientServiceInte productServiceInte;
 
-    @PostMapping
-    public Mono<Product> create(@RequestBody final Product product) {
+    @PostMapping("create")
+    public Mono<Client> create(@RequestBody final Client client) {
         log.debug("Begin RestController create Product");
-        return productServiceInte.create(product);
+        return productServiceInte.create(client);
     }
 
     @GetMapping
-    public Flux<Product> readAll() {
+    public Flux<Client> readAll() {
         log.debug("Begin RestController readAll Product");
         return productServiceInte.readAll();
     }
 
-    @GetMapping("/findByCodeProduct/{codeProduct}")
-    public Mono<Product> findByCodeProduct(@PathVariable String codeProduct) {
+    @GetMapping("/findByClientId/{id}")
+    public Mono<Client> findByClientId(@PathVariable String codeProduct) {
         log.debug("Begin RestController findByCodeProduct Product");
-        return productServiceInte.findByCodeProduct(codeProduct);
+        return productServiceInte.findById(codeProduct);
     }
 
-    @PutMapping("/{id}")
-    public Mono<Product> updateById(@RequestBody final Product product, @PathVariable("id") final String id) {
+    @PutMapping("updateById/{id}")
+    public Mono<Client> updateById(@RequestBody final Client client, @PathVariable("id") final String id) {
         log.debug("Begin RestController updateById Product");
-        return productServiceInte.updateById(id, product);
+        return productServiceInte.updateById(id, client);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("deleteById/{id}")
     public Mono<Void> deleteById(@PathVariable final String id) {
         log.debug("Begin RestController deleteById Product");
         return productServiceInte.deleteById(id);
