@@ -5,19 +5,32 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
-@Document(collection="product")
+@Document(collection="client")
 public class Client
 {
 
     @Id
     private String id;
-    private String codeProduct;
-    private String name;
-    private String description;
-    private String bankAccountNumber;
-    private String interbankAccountNumber;
+    private String codeClient;
+    private String staffNameFirst;
+    private String staffNameSecond;
+    private String staffSurnameSecond;
+    private Date staffBirthday;
+    private String staffCellphone;
+    private String staffGeoloc;
+    private String staffAddress;
+    private String businessTradeName;
+    private String businessTaxName;
+    private String businessTaxIdentificationNumber;
+    private String businessTelephone;
+    private String businessGeoloc;
+    private String businessAddress;
     private String state;
+    private String codeType;
 
 }
+

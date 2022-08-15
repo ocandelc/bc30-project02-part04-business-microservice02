@@ -10,43 +10,43 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/clients")
 public class ClientRestController
 {
 
     private static final Logger log = LoggerFactory.getLogger(ClientRestController.class);
 
     @Autowired
-    private ClientServiceInte productServiceInte;
+    private ClientServiceInte clientServiceInte;
 
     @PostMapping("create")
     public Mono<Client> create(@RequestBody final Client client) {
         log.debug("Begin RestController create Product");
-        return productServiceInte.create(client);
+        return clientServiceInte.create(client);
     }
 
     @GetMapping
     public Flux<Client> readAll() {
         log.debug("Begin RestController readAll Product");
-        return productServiceInte.readAll();
+        return clientServiceInte.readAll();
     }
 
-    @GetMapping("findByClientId/{id}")
-    public Mono<Client> findByClientId(@PathVariable String codeProduct) {
-        log.debug("Begin RestController findByCodeProduct Product");
-        return productServiceInte.findById(codeProduct);
+    @GetMapping("readByCodeClient/{codeClient}")
+    public Mono<Client> readByCodeClient(@PathVariable String codeClient) {
+        log.debug("Begin RestController readByCodeClient Product");
+        return clientServiceInte.readByCodeClient(codeClient);
     }
 
     @PutMapping("updateById/{id}")
     public Mono<Client> updateById(@RequestBody final Client client, @PathVariable("id") final String id) {
         log.debug("Begin RestController updateById Product");
-        return productServiceInte.updateById(id, client);
+        return clientServiceInte.updateById(id, client);
     }
 
     @DeleteMapping("deleteById/{id}")
     public Mono<Void> deleteById(@PathVariable final String id) {
         log.debug("Begin RestController deleteById Product");
-        return productServiceInte.deleteById(id);
+        return clientServiceInte.deleteById(id);
     }
 
 }

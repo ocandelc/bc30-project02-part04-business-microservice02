@@ -11,9 +11,9 @@ public interface ClientServiceInte
 
     Flux<Client> readAll();
 
-    Mono<Client> findById(String id);
+    Mono<Client> readByCodeClient(String codeClient);
 
-    Mono<Client> updateById(final String id, final Client product);
+    Mono<Client> updateById(final String id, final Client client);
 
     Mono<Void> deleteById(final String id);
 }

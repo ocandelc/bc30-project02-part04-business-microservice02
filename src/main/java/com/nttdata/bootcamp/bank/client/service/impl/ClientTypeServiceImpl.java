@@ -1,10 +1,13 @@
 package com.nttdata.bootcamp.bank.client.service.impl;
 
 import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
+<<<<<<< HEAD
 import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientTypeServiceInte;
 import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
+=======
+>>>>>>> 0ed9a1e8f9d229e395e5b83e11fe951b5497e80d
 import com.nttdata.bootcamp.bank.client.model.document.Client;
 import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
@@ -28,7 +31,7 @@ public class ClientTypeServiceImpl implements ClientTypeServiceInte
     public Mono<ClientType> create(final ClientType clientType) {
 
         return clientTypeDaoInte.save(clientType)
-                .doFirst(() -> log.info("Begin create client"))
+                .doFirst(() -> log.info("Begin create ClientType"))
                 .doOnNext(a -> log.info(a.toString()))
                 .doAfterTerminate(() -> log.info("Finish create client"));
     }
@@ -37,35 +40,35 @@ public class ClientTypeServiceImpl implements ClientTypeServiceInte
     public Flux<ClientType> readAll() {
 
         return clientTypeDaoInte.findAll()
-                .doFirst(() -> log.info("Begin readAll client"))
+                .doFirst(() -> log.info("Begin readAll ClientType"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish readAll client"));
+                .doAfterTerminate(() -> log.info("Finish readAll ClientType"));
     }
 
     @Override
-    public Mono<ClientType> findById(String id) {
-        return clientTypeDaoInte.findById(id)
-                .doFirst(() -> log.info("Begin findById client"))
+    public Mono<ClientType> readByCodeClientType(String codeClientType) {
+        return clientTypeDaoInte.readByCodeClientType(codeClientType)
+                .doFirst(() -> log.info("Begin findById ClientType"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish findById client"));
+                .doAfterTerminate(() -> log.info("Finish findById ClientType"));
     }
 
     @Override
     public Mono<ClientType> updateById(final String id, final ClientType clientType) {
 
         return clientTypeDaoInte.save(clientType)
-                .doFirst(() -> log.info("Begin updateById Product"))
+                .doFirst(() -> log.info("Begin updateById ClientType"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish updateById Product"));
+                .doAfterTerminate(() -> log.info("Finish updateById ClientType"));
     }
 
     @Override
     public Mono<Void> deleteById(final String id) {
 
         return clientTypeDaoInte.deleteById(id)
-                .doFirst(() -> log.info("Begin deleteById Product"))
+                .doFirst(() -> log.info("Begin deleteById ClientType"))
                 .doOnNext(a -> log.info(a.toString()))
-                .doAfterTerminate(() -> log.info("Finish deleteById Product"));
+                .doAfterTerminate(() -> log.info("Finish deleteById ClientType"));
     }
 
 }

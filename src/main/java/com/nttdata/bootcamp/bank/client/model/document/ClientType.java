@@ -9,11 +9,13 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-@Document(collection="product")
+@Document(collection="client_type")
 public class ClientType
 {
     @Id
     private String id;
+    private String codeClientType;
     private String name;
     private String description;
+    private String state;
 }
