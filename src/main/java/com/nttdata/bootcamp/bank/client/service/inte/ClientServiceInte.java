@@ -1,6 +1,6 @@
-package com.nttdata.bootcamp.bank.product.service.inte;
+package com.nttdata.bootcamp.bank.client.service.inte;
 
-import com.nttdata.bootcamp.bank.product.model.document.Client;
+import com.nttdata.bootcamp.bank.client.model.document.Client;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -11,9 +11,9 @@ public interface ClientServiceInte
 
     Flux<Client> readAll();
 
-    Mono<Client> findById(String id);
+    Mono<Client> readByCodeClient(String codeClient);
 
-    Mono<Client> updateById(final String id, final Client product);
+    Mono<Client> updateById(final String id, final Client client);
 
     Mono<Void> deleteById(final String id);
 }

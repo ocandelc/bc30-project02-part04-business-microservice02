@@ -1,18 +1,18 @@
-package com.nttdata.bootcamp.bank.product.service.inte;
+package com.nttdata.bootcamp.bank.client.service.inte;
 
-import com.nttdata.bootcamp.bank.product.model.document.Client;
-import com.nttdata.bootcamp.bank.product.model.document.ClientType;
+import com.nttdata.bootcamp.bank.client.model.document.Client;
+import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface ClientTypeServiceInte
 {
 
-    Mono<ClientType> create(final ClientType product);
+    Mono<ClientType> create(final ClientType clientType);
 
     Flux<ClientType> readAll();
 
-    Mono<ClientType> findById(String id);
+    Mono<ClientType> readByCodeClientType(String codeClientType);
 
     Mono<ClientType> updateById(final String id, final ClientType clientType);
 

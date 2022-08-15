@@ -1,4 +1,4 @@
-package com.nttdata.bootcamp.bank.product.model.document;
+package com.nttdata.bootcamp.bank.client.model.document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +9,13 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-@Document(collection="product")
+@Document(collection="client_type")
 public class ClientType
 {
     @Id
     private String id;
+    private String codeClientType;
     private String name;
     private String description;
+    private String state;
 }
