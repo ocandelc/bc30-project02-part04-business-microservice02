@@ -1,10 +1,14 @@
-package com.nttdata.bootcamp.bank.product.service.impl;
+package com.nttdata.bootcamp.bank.client.service.impl;
 
-import com.nttdata.bootcamp.bank.product.model.dao.inte.ClientTypeDaoInte;
-import com.nttdata.bootcamp.bank.product.model.document.Client;
-import com.nttdata.bootcamp.bank.product.model.document.ClientType;
-import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
-import com.nttdata.bootcamp.bank.product.service.inte.ClientTypeServiceInte;
+import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
+import com.nttdata.bootcamp.bank.client.model.document.ClientType;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientTypeServiceInte;
+import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
+import com.nttdata.bootcamp.bank.client.model.document.Client;
+import com.nttdata.bootcamp.bank.client.model.document.ClientType;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientTypeServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

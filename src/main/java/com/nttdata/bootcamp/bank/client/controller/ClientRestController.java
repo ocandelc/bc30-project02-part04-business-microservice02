@@ -1,7 +1,7 @@
-package com.nttdata.bootcamp.bank.product.controller;
+package com.nttdata.bootcamp.bank.client.controller;
 
-import com.nttdata.bootcamp.bank.product.model.document.Client;
-import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.client.model.document.Client;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

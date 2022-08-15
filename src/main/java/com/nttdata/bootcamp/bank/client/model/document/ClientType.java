@@ -1,4 +1,4 @@
-package com.nttdata.bootcamp.bank.product.model.document;
+package com.nttdata.bootcamp.bank.client.model.document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

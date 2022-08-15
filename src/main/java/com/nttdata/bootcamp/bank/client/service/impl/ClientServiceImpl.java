@@ -1,8 +1,9 @@
-package com.nttdata.bootcamp.bank.product.service.impl;
+package com.nttdata.bootcamp.bank.client.service.impl;
 
-import com.nttdata.bootcamp.bank.product.model.dao.inte.ClientDaoInte;
-import com.nttdata.bootcamp.bank.product.model.document.Client;
-import com.nttdata.bootcamp.bank.product.service.inte.ClientServiceInte;
+import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientDaoInte;
+import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientDaoInte;
+import com.nttdata.bootcamp.bank.client.model.document.Client;
+import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import reactor.core.publisher.Mono;
 public class ClientServiceImpl implements ClientServiceInte
 {
 
-    private static final Logger log = LoggerFactory.getLogger(ClientServiceInte.class);
+    private static final Logger log = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Autowired
     private ClientDaoInte clientDaoInte;
