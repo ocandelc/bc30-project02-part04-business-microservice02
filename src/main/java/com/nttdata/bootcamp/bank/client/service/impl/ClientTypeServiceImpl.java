@@ -1,13 +1,10 @@
 package com.nttdata.bootcamp.bank.client.service.impl;
 
 import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
-<<<<<<< HEAD
 import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientTypeServiceInte;
 import com.nttdata.bootcamp.bank.client.model.dao.inte.ClientTypeDaoInte;
-=======
->>>>>>> 0ed9a1e8f9d229e395e5b83e11fe951b5497e80d
 import com.nttdata.bootcamp.bank.client.model.document.Client;
 import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
