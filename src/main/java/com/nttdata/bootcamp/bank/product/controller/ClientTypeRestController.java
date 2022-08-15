@@ -33,7 +33,7 @@ public class ClientTypeRestController
         return productServiceInte.readAll();
     }
 
-    @GetMapping("/findByClientId/{id}")
+    @GetMapping("findByClientId/{id}")
     public Mono<ClientType> findByClientId(@PathVariable String id) {
         log.debug("Begin RestController findByCodeProduct Product");
         return productServiceInte.findById(id);
