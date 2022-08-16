@@ -1,5 +1,6 @@
 package com.nttdata.bootcamp.bank.client.controller;
 
+import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.model.document.Client;
 import com.nttdata.bootcamp.bank.client.model.document.ClientType;
 import com.nttdata.bootcamp.bank.client.service.inte.ClientServiceInte;
